@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  run_tests:
+  build:
      docker: 
        - image: circleci/node:10
      steps:
@@ -13,11 +13,4 @@ jobs:
            name: building project
            command: |
                npm run build
-       - save_cache:
-          key: v1-npm
-          paths:
-            - node_modules/
-  workflow:
-     build_test:
-        jobs:
-          - run_tests
+       
