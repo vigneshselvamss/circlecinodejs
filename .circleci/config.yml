@@ -9,6 +9,14 @@ jobs:
            name: dependencies instalation 
            command: |
                npm install --save
+       - run:
+           name: building project
+           command: |
+               npm run build
+       - save_cache:
+          key: v1-npm
+          paths:
+            - node_modules/
   workflow:
      build_test:
         jobs:
